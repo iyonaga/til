@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header.jsx';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+
 var HelloMessage = React.createClass({
   render: function() {
     return (
@@ -30,9 +33,15 @@ const user = {
 };
 
 const element = (
-  <h1>
-    Hello, {formatName(user)}!
-  </h1>
+  <div>
+    <h1>
+      Hello, {formatName(user)}!
+    </h1>
+    <MuiThemeProvider>
+      <RaisedButton label="Default" />
+    </MuiThemeProvider>
+  </div>
+
 );
 
 
