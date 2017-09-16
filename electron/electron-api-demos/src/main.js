@@ -2,11 +2,31 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
+const MenuItem = electron.MenuItem;
 
 const path = require('path');
 const url = require('url');
 
 let mainWindow = null;
+
+const menu = new Menu();
+menu.append(new MenuItem({label: 'Hello'}));
+menu.append(new MenuItem({type: 'separator'}));
+menu.append(new MenuItem({label: 'Electron', type: 'checkbox', checked: true}));
+
+app.on('ready', createWindow);
+
+app.on('browser-window-created', (event, win) => {
+  win.webContents.on('context-menu', (e, params) => {
+    menu.popup(win, params.x, params.y);
+  });
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
 
 function createWindow() {
   const menuTemplate = getMenuTemplate();
@@ -27,14 +47,6 @@ function createWindow() {
     mainWindow = null;
   });
 }
-
-app.on('ready', createWindow);
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
 
 function getMenuTemplate() {
   let template = [{
