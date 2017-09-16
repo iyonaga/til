@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Hello Electron</title>
+  <style>
+  .smooth-appear {
+    opacity: 1;
+      transition: opacity .5s ease-in-out;
+    }
+
+    .disappear {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
-  <h1>はじめてのElectronアプリ</h1>
+  <button id="manage-window">Open New Window</button>
+  <div id="manage-window-replay"></div>
+  <button id="focus-on-modal-window" class="disappear">Focus</button>
+  <script>
+    require('./renderer-process');
+  </script>
 </body>
 </html>
