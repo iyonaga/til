@@ -1,0 +1,15 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "flow": "flow"
+  },
+  "dependencies": {
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "flow-bin": "^0.61.0",
+    "react": "^16.2.0",
+    "redux": "^3.7.2"
+  }
+}
