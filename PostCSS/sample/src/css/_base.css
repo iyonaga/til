@@ -1,0 +1,24 @@
+html {
+  color: $text-color;
+}
+
+body {
+  display: flex;
+
+  p {
+    font-size: 15px;
+
+    @media (max-width: 10em) {
+      font-size: 13px;
+    }
+
+    @media (--small-viewport) {
+      font-size: 11px;
+
+      span {
+        border-bottom: 1px dotted $black;
+        padding-bottom: 1px;
+      }
+    }
+  }
+}
