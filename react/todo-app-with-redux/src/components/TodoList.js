@@ -9,7 +9,7 @@ export default class TodoList extends Component {
             if (todo.status === this.props.filter || this.props.filter === 'all') {
               const isCompleted = (todo.status === 'completed');
               return (
-                <li key={i}><input type="checkbox" onChange={this.props.updateStatus} value={i} checked={isCompleted} />
+                <li key={i}><input type="checkbox" onChange={this.props.onTodoItemClick} value={i} checked={isCompleted} />
                   { isCompleted ? <s>{todo.title}</s> : todo.title }
                 </li>
               )
@@ -18,9 +18,9 @@ export default class TodoList extends Component {
             }
           })}
         </ol>
-        <button value="all" onClick={this.props.updateFilterValue}>All</button>
-        <button value="active" onClick={this.props.updateFilterValue}>Active</button>
-        <button value="completed" onClick={this.props.updateFilterValue}>Completed</button>
+        <button value="all" onClick={this.props.onFilterClick}>All</button>
+        <button value="active" onClick={this.props.onFilterClick}>Active</button>
+        <button value="completed" onClick={this.props.onFilterClick}>Completed</button>
       </div>
     )
   }

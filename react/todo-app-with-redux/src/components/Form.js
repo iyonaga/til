@@ -5,7 +5,7 @@ export default class Form extends Component {
   render() {
     return (
       <div>
-        <input type="text" className="input" onKeyDown={(e) => this.props.add(e)} />
+        <input type="text" className="input" onKeyDown={(e) => this.props.onInputKeyDown(e)} />
       </div>
     )
   }

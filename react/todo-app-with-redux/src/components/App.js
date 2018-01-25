@@ -5,21 +5,7 @@ import TodoList from './TodoList';
 
 export default class App extends Component {
 
-  render() {
-    return (
-      <div>
-        <Form add={this.add.bind(this)} />
-        <TodoList
-          todos={this.props.todos}
-          filter={this.props.filter}
-          updateStatus={this.updateStatus.bind(this)}
-          updateFilterValue={this.updateFilterValue.bind(this)}
-        />
-      </div>
-    );
-  }
-
-  add(e) {
+  onInputKeyDown(e) {
     const enter = 13;
     if (e.keyCode === enter) {
       const title = e.target.value;
@@ -28,13 +14,27 @@ export default class App extends Component {
     }
   }
 
-  updateStatus(e) {
+  onTodoItemClick(e) {
     const idx = e.target.value;
     this.props.updateStatus(idx);
   }
 
-  updateFilterValue(e) {
+  onFilterClick(e) {
     const value = e.target.value;
     this.props.updateFilterValue(value);
+  }
+
+  render() {
+    return (
+      <div>
+        <Form onInputKeyDown={this.onInputKeyDown.bind(this)} />
+        <TodoList
+          todos={this.props.todos}
+          filter={this.props.filter}
+          onTodoItemClick={this.onTodoItemClick.bind(this)}
+          onFilterClick={this.onFilterClick.bind(this)}
+        />
+      </div>
+    );
   }
 }
