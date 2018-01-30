@@ -1,0 +1,3 @@
+./node_modules/mocha/bin/mocha --require setup.js *.spec.js
+
+node_modules/quik/bin/quik.js
