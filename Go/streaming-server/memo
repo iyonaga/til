@@ -1,0 +1,4 @@
+Echoインストール
+$ go get github.com/labstack/echo
+
+$ go run server2.go
