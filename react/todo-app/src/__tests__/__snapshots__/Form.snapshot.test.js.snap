@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Form renders correctly 1`] = `
+<div>
+  <input
+    className="input"
+    onKeyDown={[Function]}
+    type="text"
+  />
+</div>
+`;
