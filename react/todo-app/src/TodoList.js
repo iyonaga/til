@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import TodoItem from './TodoItem';
+ import TodoItem from './TodoItem';
 
 export default class TodoList extends Component {
   render() {
@@ -10,9 +10,7 @@ export default class TodoList extends Component {
             if (todo.status === this.props.filter || this.props.filter === 'all') {
               const isCompleted = (todo.status === 'completed');
               return (
-                <li key={i}><input type="checkbox" onChange={this.props.updateStatus} value={i} checked={isCompleted} />
-                  { isCompleted ? <s>{todo.title}</s> : todo.title }
-                </li>
+                <TodoItem key={i} todo={todo} i={i} isCompleted={isCompleted} handleChange={this.props.updateStatus} />
               )
             } else {
               return false;
