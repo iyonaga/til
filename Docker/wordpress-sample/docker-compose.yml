@@ -1,0 +1,72 @@
+version: '3'
+
+# Services
+# ------------------------------------------------------------
+services:
+
+  # Database
+  # -----------------------------------------
+  db:
+    image: mysql:5.7
+    volumes:
+      # TODO: create a directory "db_data" in the root folder of your installation
+      # - db_data:/var/lib/mysql
+      - ./.data/db:/var/lib/mysql
+      # - ./db-data:/docker-entrypoint-initdb.d
+    restart: always
+    # env_file: .env
+    environment:
+      # Grab this data from wp-config.php
+      # TODO: Update DB_HOST in wp-config.php to "db:port"
+      # TODO: Update the database login in wp-config.php to the values set below
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  # WordPress
+  # -----------------------------------------
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    # ports:
+    #   - "8080:80"
+    #   # - "443:443"
+    restart: always
+    volumes:
+      - ./public:/var/www/html
+      - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
+    # env_file: .env
+    # environment:
+    #   WORDPRESS_DB_HOST: db:3306
+    environment:
+      # Update login data + table prefix from wp-config.php
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: 'wp_'
+      VIRTUAL_HOST: localhost
+      # VIRTUAL_PORT: 80
+      CERT_NAME: localhost
+      # HTTPS_METHOD: noredirect
+    # domainname: wordpress-docker.test
+
+  # Proxy
+  # -----------------------------------------
+  proxy:
+    image: jwilder/nginx-proxy
+    privileged: true
+    ports:
+      - "8080:80"
+      - "443:443"
+    volumes:
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
+
+# Volumes
+# ------------------------------------------------------------
+# volumes:
+#   db_data:
+#     driver: local
