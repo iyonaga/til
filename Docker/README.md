@@ -8,3 +8,6 @@
 - wordpress-docker-nginx-phpfpm
 	nginx, php-fpmでwordpressを動かすサンプル
 	※wordpressファイル群の配置まではできていない
+
+- wordpress-docker-nginx-phpfpm2
+	wirdoress公式イメージを使ってnginx, php-fpmでwordpressを動かすサンプル
