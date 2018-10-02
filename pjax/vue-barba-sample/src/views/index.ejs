@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<$- include('partials/_head', { title: 'Index' }) $>
+<body>
+	<div id="nav">
+		<nav>
+			<ul>
+				<li><a href="/" v-bind:class="{ 'is-active' : active === 'index' }" v-on:click="makeActive('index')">Index</a></li>
+				<li><a href="/about.html"  v-bind:class="{ 'is-active' : active === 'about' }" v-on:click="makeActive('about')">About</a></li>
+			</ul>
+		</nav>
+	</div>
+	<hr>
+	<div id="nav2">
+		<nav-list></nav-list>
+	</div>
+	<hr>
+	<div id="barba-wrapper">
+	    <div class="barba-container">
+	      This is index page.
+	    </div>
+	  </div>
+	</div>
+</body>
+</html>
