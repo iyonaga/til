@@ -2,6 +2,8 @@ package com.example.iyonaga.kotlinmessenger
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity: AppCompatActivity() {
@@ -13,6 +15,11 @@ class LoginActivity: AppCompatActivity() {
         login_button_login.setOnClickListener {
             val email = email_edittext_login.text.toString()
             val password = password_edittext_login.text.toString()
+
+            Log.d("Login", "Attempt login with email/pw: $email/***")
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+//                .addOnCompleteListener {  }
+//                .addOnFailureListener {  }
         }
 
         back_to_registar_textview.setOnClickListener {
