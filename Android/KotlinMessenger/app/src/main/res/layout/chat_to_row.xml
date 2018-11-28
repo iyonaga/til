@@ -9,7 +9,7 @@
             android:text="This is My MessageThis is My MessageThis is My MessageThis is My Message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
+            android:id="@+id/textview_to_row"
             app:layout_constraintTop_toTopOf="@+id/imageView"
             android:padding="16dp"
             android:background="@drawable/rounded_edittext_register_login" android:maxWidth="240dp"
