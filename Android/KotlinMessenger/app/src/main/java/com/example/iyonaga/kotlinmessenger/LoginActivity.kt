@@ -1,5 +1,6 @@
 package com.example.iyonaga.kotlinmessenger
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -18,6 +19,11 @@ class LoginActivity: AppCompatActivity() {
 
             Log.d("Login", "Attempt login with email/pw: $email/***")
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener {
+                    val intent = Intent(this, LatestMessagesActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                }
 //                .addOnCompleteListener {  }
 //                .addOnFailureListener {  }
         }
