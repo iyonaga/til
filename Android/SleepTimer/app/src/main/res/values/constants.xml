@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="default_time">20</integer>
+    <integer name="max_timer_value">60</integer>
+    <integer name="preference_extend_time_default">10</integer>
+</resources>
