@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle my-ascii-art",
+        "command": "my-ascii-art:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "my-ascii-art",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "my-ascii-art:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
