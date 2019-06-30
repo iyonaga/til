@@ -1,0 +1,8 @@
+.weather {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  padding: 0 1rem;
+  z-index: 100;
+}
