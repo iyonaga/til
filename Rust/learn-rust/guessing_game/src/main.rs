@@ -16,6 +16,9 @@ fn main() {
 
         let mut guess = String::new();
 
+        // read_lineはio::Resultを返す
+        // Result型はOkとErrの列挙子を持つenum
+        // io::ResultオブジェクトがErrの場合、expectはプログラムをクラッシュさせる
         io::stdin()
             .read_line(&mut guess)
             .expect("Failed to read line");
