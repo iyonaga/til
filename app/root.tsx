@@ -96,6 +96,9 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
               <li>
                 <a href="https://github.com/remix-run/remix">GitHub</a>
               </li>
+              <li>
+                <Link to="/posts">Posts</Link>
+              </li>
             </ul>
           </nav>
         </div>
